@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native-paper";
+import { Card } from "react-native-paper";
 
 interface RestaurantInfoProps {
 	restaurant: {
@@ -36,5 +36,10 @@ export const RestaurantInfo = ({
 		isClosedTemporarily,
 	} = restaurant;
 
-	return <Text>{name}</Text>;
+	return (
+		<Card elevation={4}>
+			<Card.Cover key={name} source={{ uri: photos[0] }} />
+			<Card.Title title={name} />
+		</Card>
+	);
 };
