@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Image, Text } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import open from "../../../../../assets/open";
@@ -25,7 +25,7 @@ const Open = ({ width, height }: IconProps) => (
 export const RestaurantInfoCard = ({
 	restaurant = {
 		name: "Some Restaurant",
-		icon: "",
+		icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
 		photos: [
 			"https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		],
@@ -67,6 +67,10 @@ export const RestaurantInfoCard = ({
 							</Text>
 						)}
 						{isOpenNow && <Open width={20} height={20} />}
+						<Image
+							style={{ width: 20, height: 20 }}
+							source={{ uri: icon }}
+						/>
 					</SectionEnd>
 				</Section>
 
