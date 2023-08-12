@@ -10,7 +10,7 @@ export const RestaurantsScreen = () => {
 	const onChangeSearch = (query: string) => setSearchQuery(query);
 
 	return (
-		<SafeAreaView style={styles.container}>
+		<>
 			<View style={styles.search}>
 				<Searchbar
 					placeholder="Search"
@@ -21,7 +21,7 @@ export const RestaurantsScreen = () => {
 			<View style={styles.list}>
 				<RestaurantInfoCard />
 			</View>
-		</SafeAreaView>
+		</>
 	);
 };
 
