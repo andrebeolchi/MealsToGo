@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { Searchbar } from "react-native-paper";
 import styled, { DefaultTheme } from "styled-components/native";
-import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { RestaurantInfoCard } from "../components/restaurant-info-card";
 
 const SearchContainer = styled(View)`
 	padding: ${(props: DefaultTheme) => props.theme.space[3]};
