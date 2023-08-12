@@ -1,9 +1,26 @@
 import React from "react";
+import { Text } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
+import open from "../../../../../assets/open";
 import star from "../../../../../assets/start";
-import { RestaurantInfoCardProps } from "./types";
-import { Address, Info, Rating, RestaurantCard, Title } from "./styles";
+import {
+	Address,
+	Info,
+	Rating,
+	RestaurantCard,
+	Section,
+	SectionEnd,
+	Title,
+} from "./styles";
+import { IconProps, RestaurantInfoCardProps } from "./types";
+
+const Star = ({ width, height }: IconProps) => (
+	<SvgXml xml={star} width={width} height={height} />
+);
+const Open = ({ width, height }: IconProps) => (
+	<SvgXml xml={open} width={width} height={height} />
+);
 
 export const RestaurantInfoCard = ({
 	restaurant = {
@@ -36,11 +53,22 @@ export const RestaurantInfoCard = ({
 			<Info>
 				<Title>{name}</Title>
 
-				<Rating>
-					{ratingArray.map((_, index) => (
-						<SvgXml key={index} xml={star} width={20} height={20} />
-					))}
-				</Rating>
+				<Section>
+					<Rating>
+						{ratingArray.map((_, index) => (
+							<Star key={index} width={20} height={20} />
+						))}
+					</Rating>
+
+					<SectionEnd>
+						{isClosedTemporarily && (
+							<Text variant="label" style={{ color: "red" }}>
+								CLOSED TEMPORARILY
+							</Text>
+						)}
+						{isOpenNow && <Open width={20} height={20} />}
+					</SectionEnd>
+				</Section>
 
 				<Address>{address}</Address>
 			</Info>
