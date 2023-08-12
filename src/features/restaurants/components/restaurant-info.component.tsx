@@ -7,22 +7,32 @@ interface RestaurantInfoProps {
 		icon: string;
 		photos: string[];
 		address: string;
-		openingHours: string;
+		isOpenNow: boolean;
 		rating: number;
 		isClosedTemporarily: boolean;
 	};
 }
 
-export const RestaurantInfo = ({ restaurant = {} }: RestaurantInfoProps) => {
-	const {
-		name = "Some Restaurant",
-		icon,
-		photos = [
+export const RestaurantInfo = ({
+	restaurant = {
+		name: "Some Restaurant",
+		icon: "",
+		photos: [
 			"https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		],
-		address = "100 some random street",
-		isOpenNow = true,
-		rating = 4,
+		address: "100 some random street",
+		isOpenNow: true,
+		rating: 4,
+		isClosedTemporarily: true,
+	},
+}: RestaurantInfoProps) => {
+	const {
+		name,
+		icon,
+		photos,
+		address,
+		isOpenNow,
+		rating,
 		isClosedTemporarily,
 	} = restaurant;
 
