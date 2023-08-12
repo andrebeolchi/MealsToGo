@@ -1,6 +1,22 @@
 {
-	"extends": "@react-native-community",
-	"rules": {
-		"quotes": [2, "double", { "avoidEscape": true }]
-	}
+  "extends": "@react-native-community",
+  "rules": {
+    "quotes": [
+      2,
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "indent": [
+      "error",
+      "tab"
+    ],
+    "prettier/prettier": [
+      2,
+      {
+        "useTabs": true
+      }
+    ]
+  }
 }
