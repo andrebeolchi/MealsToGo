@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-native-paper";
 
-interface RestaurantInfoProps {
+interface RestaurantInfoCardProps {
 	restaurant: {
 		name: string;
 		icon: string;
@@ -13,7 +13,7 @@ interface RestaurantInfoProps {
 	};
 }
 
-export const RestaurantInfo = ({
+export const RestaurantInfoCard = ({
 	restaurant = {
 		name: "Some Restaurant",
 		icon: "",
@@ -25,7 +25,7 @@ export const RestaurantInfo = ({
 		rating: 4,
 		isClosedTemporarily: true,
 	},
-}: RestaurantInfoProps) => {
+}: RestaurantInfoCardProps) => {
 	const {
 		name,
 		icon,
