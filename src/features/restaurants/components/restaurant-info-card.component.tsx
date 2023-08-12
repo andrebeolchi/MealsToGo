@@ -15,12 +15,13 @@ interface RestaurantInfoCardProps {
 }
 
 const RestaurantCard = styled(Card)`
-	background-color: ${(props: DefaultTheme) =>
+	background-color: ${(props: { theme: DefaultTheme }) =>
 		props.theme.colors.bg.secondary};
 `;
 
 const RestaurantCardTitle = styled(Card.Title)`
-	color: ${(props: DefaultTheme) => props.theme.colors.ui.primary};
+	color: ${(props: { theme: DefaultTheme }) => props.theme.colors.ui.primary};
+	font-family: ${(props: { theme: DefaultTheme }) => props.theme.fonts.body};
 `;
 
 export const RestaurantInfoCard = ({
