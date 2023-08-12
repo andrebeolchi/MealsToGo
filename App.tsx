@@ -3,15 +3,14 @@ import React from "react";
 import { SafeAreaView, StatusBar } from "react-native";
 import styled, { ThemeProvider } from "styled-components/native";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant-screen";
-import { paperTheme, theme } from "./src/infrastructure/theme";
 
 import {
-	RobotoCondensed_400Regular,
-	useFonts as useRoboto,
-} from "@expo-google-fonts/roboto-condensed";
+	Oswald_400Regular,
+	useFonts as useOswald,
+} from "@expo-google-fonts/oswald";
 
 import { Lato_400Regular, useFonts as useLato } from "@expo-google-fonts/lato";
-import { PaperProvider } from "react-native-paper";
+import { theme } from "./src/infrastructure/theme";
 
 const SafeArea = styled(SafeAreaView)`
 	flex: 1;
@@ -19,8 +18,8 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 export default function App() {
-	const [robotoLoaded] = useRoboto({
-		RobotoCondensed_400Regular,
+	const [robotoLoaded] = useOswald({
+		Oswald_400Regular,
 	});
 
 	const [latoLoaded] = useLato({
@@ -34,12 +33,10 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<PaperProvider theme={paperTheme}>
-					<SafeArea>
-						<RestaurantsScreen />
-					</SafeArea>
-					<ExpoStatusBar style="auto" />
-				</PaperProvider>
+				<SafeArea>
+					<RestaurantsScreen />
+				</SafeArea>
+				<ExpoStatusBar style="auto" />
 			</ThemeProvider>
 		</>
 	);
