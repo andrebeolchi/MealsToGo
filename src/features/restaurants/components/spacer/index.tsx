@@ -1,4 +1,5 @@
-import styled, { DefaultTheme } from "styled-components/native";
+import React from "react";
+import styled, { DefaultTheme, useTheme } from "styled-components/native";
 import { SpacerProps, TPosition, TSize } from "./types";
 
 const sizeVariant = {
@@ -21,19 +22,14 @@ const getVariant = (position: TPosition, size: TSize, theme: DefaultTheme) => {
 
 	return `${property}: ${value}`;
 };
-export const Spacer: React.FunctionComponent<SpacerProps> = styled.View`
-	${({
-		position,
-		size,
-		theme,
-	}: {
-		position: TPosition;
-		size: TSize;
-		theme: DefaultTheme;
-	}) => getVariant(position, size, theme)}
+
+export const SpacerView = styled.View`
+	${({ variant }: { variant: string }) => variant};
 `;
 
-Spacer.defaultProps = {
-	position: "top",
-	size: "small",
+export const Spacer = ({ position, size }: SpacerProps) => {
+	const theme = useTheme();
+	const variant = getVariant(position, size, theme);
+
+	return <SpacerView variant={variant} />;
 };
