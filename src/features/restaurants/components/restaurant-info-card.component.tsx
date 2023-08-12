@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-native-paper";
+import { Card, Text } from "react-native-paper";
 import styled, { DefaultTheme } from "styled-components/native";
 
 interface RestaurantInfoCardProps {
@@ -19,9 +19,23 @@ const RestaurantCard = styled(Card)`
 		props.theme.colors.bg.secondary};
 `;
 
-const RestaurantCardTitle = styled(Card.Title)`
+const Info = styled.View`
+	padding: ${(props: { theme: DefaultTheme }) => props.theme.space[3]};
+`;
+
+const Title = styled(Text)`
+	font-family: ${(props: { theme: DefaultTheme }) =>
+		props.theme.fonts.heading};
+	font-size: ${(props: { theme: DefaultTheme }) =>
+		props.theme.fontSizes.body};
 	color: ${(props: { theme: DefaultTheme }) => props.theme.colors.ui.primary};
+`;
+
+const Address = styled(Text)`
 	font-family: ${(props: { theme: DefaultTheme }) => props.theme.fonts.body};
+	font-size: ${(props: { theme: DefaultTheme }) =>
+		props.theme.fontSizes.caption};
+	color: ${(props: { theme: DefaultTheme }) => props.theme.colors.ui.primary};
 `;
 
 export const RestaurantInfoCard = ({
@@ -50,7 +64,10 @@ export const RestaurantInfoCard = ({
 	return (
 		<RestaurantCard elevation={4}>
 			<Card.Cover key={name} source={{ uri: photos[0] }} />
-			<RestaurantCardTitle title={name} />
+			<Info>
+				<Title>{name}</Title>
+				<Address>{address}</Address>
+			</Info>
 		</RestaurantCard>
 	);
 };
