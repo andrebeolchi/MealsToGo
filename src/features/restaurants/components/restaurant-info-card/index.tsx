@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../../assets/start";
-import { RestaurantInfoCardProps } from "./props";
+import { RestaurantInfoCardProps } from "./types";
 import { Address, Info, Rating, RestaurantCard, Title } from "./styles";
 
 export const RestaurantInfoCard = ({
