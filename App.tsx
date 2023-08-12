@@ -1,30 +1,21 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import { SafeAreaView, StatusBar } from "react-native";
+import styled from "styled-components/native";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant-screen";
+
+const SafeArea = styled(SafeAreaView)`
+	flex: 1;
+	${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;
 
 export default function App() {
 	return (
 		<>
-			<SafeAreaView style={styles.container}>
+			<SafeArea>
 				<RestaurantsScreen />
-			</SafeAreaView>
+			</SafeArea>
 			<ExpoStatusBar style="auto" />
 		</>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		marginTop: StatusBar.currentHeight,
-	},
-	search: {
-		padding: 16,
-	},
-	list: {
-		flex: 1,
-		padding: 16,
-		backgroundColor: "blue",
-	},
-});
