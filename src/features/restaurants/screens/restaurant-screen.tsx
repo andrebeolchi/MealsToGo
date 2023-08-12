@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import { Searchbar } from "react-native-paper";
-import styled from "styled-components/native";
+import styled, { DefaultTheme } from "styled-components/native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
 const SearchContainer = styled(View)`
-	padding: 16px;
+	padding: ${(props: DefaultTheme) => props.theme.space[3]};
+	background-color: ${(props: DefaultTheme) => props.theme.colors.bg.primary};
 `;
 
 const ResturantListContainer = styled(View)`
 	flex: 1;
-	padding: 16px;
-	background-color: blue;
+	padding: ${(props: DefaultTheme) => props.theme.space[3]};
+	background-color: ${(props: DefaultTheme) => props.theme.colors.bg.primary};
+`;
+
+const Search = styled(Searchbar)`
+	background-color: ${(props: DefaultTheme) =>
+		props.theme.colors.bg.secondary};
 `;
 
 export const RestaurantsScreen = () => {
@@ -22,7 +28,8 @@ export const RestaurantsScreen = () => {
 	return (
 		<>
 			<SearchContainer>
-				<Searchbar
+				<Search
+					elevation={1}
 					placeholder="Search"
 					onChangeText={onChangeSearch}
 					value={searchQuery}

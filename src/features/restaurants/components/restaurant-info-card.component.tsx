@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-native-paper";
+import styled, { DefaultTheme } from "styled-components/native";
 
 interface RestaurantInfoCardProps {
 	restaurant: {
@@ -12,6 +13,15 @@ interface RestaurantInfoCardProps {
 		isClosedTemporarily: boolean;
 	};
 }
+
+const RestaurantCard = styled(Card)`
+	background-color: ${(props: DefaultTheme) =>
+		props.theme.colors.bg.secondary};
+`;
+
+const RestaurantCardTitle = styled(Card.Title)`
+	color: ${(props: DefaultTheme) => props.theme.colors.ui.primary};
+`;
 
 export const RestaurantInfoCard = ({
 	restaurant = {
@@ -37,9 +47,9 @@ export const RestaurantInfoCard = ({
 	} = restaurant;
 
 	return (
-		<Card elevation={4}>
+		<RestaurantCard elevation={4}>
 			<Card.Cover key={name} source={{ uri: photos[0] }} />
-			<Card.Title title={name} />
-		</Card>
+			<RestaurantCardTitle title={name} />
+		</RestaurantCard>
 	);
 };
