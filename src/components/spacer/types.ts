@@ -1,6 +1,7 @@
 export interface SpacerProps {
 	position: TPosition;
 	size: TSize;
+	children?: React.ReactNode;
 }
 
 export type TSizeVariant = {
