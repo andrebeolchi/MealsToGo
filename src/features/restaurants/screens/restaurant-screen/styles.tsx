@@ -7,7 +7,7 @@ export const SearchContainer = styled(View)`
 	background-color: ${(props: DefaultTheme) => props.theme.colors.bg.primary};
 `;
 
-export const ResturantListContainer = styled(View)`
+export const RestaurantListContainer = styled(View)`
 	flex: 1;
 	padding: ${(props: DefaultTheme) => props.theme.space[3]};
 	background-color: ${(props: DefaultTheme) => props.theme.colors.bg.primary};

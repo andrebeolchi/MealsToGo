@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card";
-import { ResturantListContainer, Search, SearchContainer } from "./styles";
+import { RestaurantListContainer, Search, SearchContainer } from "./styles";
 
 export const RestaurantsScreen = () => {
 	const [searchQuery, setSearchQuery] = useState<string>("");
@@ -17,9 +17,9 @@ export const RestaurantsScreen = () => {
 					value={searchQuery}
 				/>
 			</SearchContainer>
-			<ResturantListContainer>
+			<RestaurantListContainer>
 				<RestaurantInfoCard />
-			</ResturantListContainer>
+			</RestaurantListContainer>
 		</>
 	);
 };
