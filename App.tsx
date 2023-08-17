@@ -32,17 +32,39 @@ const TAB_ICON: {
 	Settings: "settings",
 };
 
+const TAB_ICON_OUTLINE: {
+	[key: string]: keyof typeof Ionicons.glyphMap;
+} = {
+	Restaurants: "restaurant-outline",
+	Map: "map-outline",
+	Settings: "settings-outline",
+};
+
 const createScreenOptions = ({
 	route,
 }: {
 	route: { name: keyof RootNavigatorParamList };
 }) => {
 	const iconName = TAB_ICON[route.name];
+	const iconNameOutline = TAB_ICON_OUTLINE[route.name];
 
 	return {
-		tabBarIcon: ({ size, color }: { size: number; color: string }) => (
-			<Ionicons name={iconName} size={size} color={color} />
+		tabBarIcon: ({
+			focused,
+			size,
+			color,
+		}: {
+			focused: boolean;
+			size: number;
+			color: string;
+		}) => (
+			<Ionicons
+				name={focused ? iconName : iconNameOutline}
+				size={size}
+				color={color}
+			/>
 		),
+		tabBarActiveTintColor: theme.colors.brand.primary,
 	};
 };
 
