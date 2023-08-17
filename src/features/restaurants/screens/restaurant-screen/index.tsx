@@ -1,43 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
 import { SafeArea } from "../../../../components/safe-area";
 import { Spacer } from "../../../../components/spacer";
 import { IRestaurant } from "../../../../interfaces/restaurant";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card";
 import { RestaurantList, Search, SearchContainer } from "./styles";
 
-export const RestaurantsScreen = () => {
-	const [searchQuery, setSearchQuery] = useState<string>("");
+import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
 
-	const onChangeSearch = (query: string) => setSearchQuery(query);
+export const RestaurantsScreen = () => {
+	const restaurantContext = useContext(RestaurantsContext);
 
 	return (
 		<SafeArea>
 			<SearchContainer>
-				<Search
-					elevation={1}
-					placeholder="Search"
-					onChangeText={onChangeSearch}
-					value={searchQuery}
-				/>
+				<Search />
 			</SearchContainer>
 			<RestaurantList
-				data={[
-					{
-						name: "Some Restaurant",
-						icon: "https://picsum.photos/300/200",
-						photos: [
-							"https://picsum.photos/200/300",
-							"https://picsum.photos/200/300",
-						],
-						address: "100 some random street",
-						isOpenNow: true,
-						rating: 4,
-						isClosedTemporarily: false,
-					},
-				]}
+				data={restaurantContext.restaurants}
 				renderItem={({ item }: { item: IRestaurant }) => (
-					<Spacer position="bottom" size="small">
-						<RestaurantInfoCard restaurant={item} />
+					<Spacer position="bottom" size="medium">
+						<RestaurantInfoCard />
 					</Spacer>
 				)}
 				keyExtractor={(item: IRestaurant) => item.name}

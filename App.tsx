@@ -15,6 +15,7 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 
 import { Lato_400Regular, useFonts as useLato } from "@expo-google-fonts/lato";
 import { theme } from "./src/infrastructure/theme";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 
 export type RootNavigatorParamList = {
 	Restaurants: undefined;
@@ -84,19 +85,24 @@ export default function App() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<NavigationContainer>
-					<Tab.Navigator screenOptions={createScreenOptions}>
-						<Tab.Screen
-							name="Restaurants"
-							component={RestaurantsScreen}
-						/>
-						<Tab.Screen name="Map" component={RestaurantsScreen} />
-						<Tab.Screen
-							name="Settings"
-							component={RestaurantsScreen}
-						/>
-					</Tab.Navigator>
-				</NavigationContainer>
+				<RestaurantsContextProvider>
+					<NavigationContainer>
+						<Tab.Navigator screenOptions={createScreenOptions}>
+							<Tab.Screen
+								name="Restaurants"
+								component={RestaurantsScreen}
+							/>
+							<Tab.Screen
+								name="Map"
+								component={RestaurantsScreen}
+							/>
+							<Tab.Screen
+								name="Settings"
+								component={RestaurantsScreen}
+							/>
+						</Tab.Navigator>
+					</NavigationContainer>
+				</RestaurantsContextProvider>
 				<ExpoStatusBar style="auto" />
 			</ThemeProvider>
 		</>
