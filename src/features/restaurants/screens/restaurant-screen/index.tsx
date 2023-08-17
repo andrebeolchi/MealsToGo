@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SafeArea } from "../../../../components/safe-area";
 import { Spacer } from "../../../../components/spacer";
 import { IRestaurant } from "../../../../interfaces/restaurant";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card";
@@ -10,7 +11,7 @@ export const RestaurantsScreen = () => {
 	const onChangeSearch = (query: string) => setSearchQuery(query);
 
 	return (
-		<>
+		<SafeArea>
 			<SearchContainer>
 				<Search
 					elevation={1}
@@ -41,6 +42,6 @@ export const RestaurantsScreen = () => {
 				)}
 				keyExtractor={(item: IRestaurant) => item.name}
 			/>
-		</>
+		</SafeArea>
 	);
 };
