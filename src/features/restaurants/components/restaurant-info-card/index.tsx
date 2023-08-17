@@ -1,18 +1,18 @@
 import React from "react";
-import { Image, Text } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import open from "../../../../../assets/open";
 import star from "../../../../../assets/start";
 import { Spacer } from "../../../../components/spacer";
+import { Text } from "../../../../components/text";
 import {
 	Address,
+	Icon,
 	Info,
 	Rating,
 	RestaurantCard,
 	Section,
 	SectionEnd,
-	Title,
 } from "./styles";
 import { IconProps, RestaurantInfoCardProps } from "./types";
 
@@ -52,7 +52,7 @@ export const RestaurantInfoCard = ({
 		<RestaurantCard elevation={4}>
 			<Card.Cover key={name} source={{ uri: photos[0] }} />
 			<Info>
-				<Title>{name}</Title>
+				<Text variant="label">{name}</Text>
 
 				<Section>
 					<Rating>
@@ -63,17 +63,12 @@ export const RestaurantInfoCard = ({
 
 					<SectionEnd>
 						{isClosedTemporarily && (
-							<Text style={{ color: "red" }}>
-								CLOSED TEMPORARILY
-							</Text>
+							<Text variant="error">CLOSED TEMPORARILY</Text>
 						)}
 						<Spacer position={"left"} size={"small"} />
 						{isOpenNow && <Open width={20} height={20} />}
 						<Spacer position={"left"} size={"small"} />
-						<Image
-							style={{ width: 20, height: 20 }}
-							source={{ uri: icon }}
-						/>
+						<Icon source={{ uri: icon }} />
 					</SectionEnd>
 				</Section>
 

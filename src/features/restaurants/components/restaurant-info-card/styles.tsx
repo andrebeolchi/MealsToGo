@@ -11,14 +11,6 @@ export const Info = styled.View`
 	padding: ${(props: { theme: DefaultTheme }) => props.theme.space[3]};
 `;
 
-export const Title = styled(Text)`
-	font-family: ${(props: { theme: DefaultTheme }) =>
-		props.theme.fonts.heading};
-	font-size: ${(props: { theme: DefaultTheme }) =>
-		props.theme.fontSizes.body};
-	color: ${(props: { theme: DefaultTheme }) => props.theme.colors.ui.primary};
-`;
-
 export const Address = styled(Text)`
 	font-family: ${(props: { theme: DefaultTheme }) => props.theme.fonts.body};
 	font-size: ${(props: { theme: DefaultTheme }) =>
@@ -49,4 +41,9 @@ export const SectionEnd = styled.View`
 	flex-direction: row;
 	align-items: center;
 	justify-content: flex-end;
+`;
+
+export const Icon = styled.Image`
+	width: 20px;
+	height: 20px;
 `;
