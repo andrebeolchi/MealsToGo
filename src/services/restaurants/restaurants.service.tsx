@@ -1,4 +1,21 @@
+//@ts-ignore - camelize is not a module
+import camelize from "camelize";
+import { IRawRestaurant } from "../../interfaces/restaurant";
 import { mocks } from "./mock";
+
+const restaurantsTransform = ({ results = [] }) => {
+	const mappedResults = results.map((restaurant: IRawRestaurant) => {
+		return {
+			...restaurant,
+			isClosedTemporarily:
+				restaurant.business_status === "CLOSED_TEMPORARILY",
+			isOpenNow:
+				restaurant.opening_hours && restaurant.opening_hours.open_now,
+		};
+	});
+
+	return camelize(mappedResults);
+};
 
 export const restaurantsRequest = (location = "37.7749295,-122.4194155") => {
 	return new Promise((resolve, reject) => {
