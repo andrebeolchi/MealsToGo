@@ -1,4 +1,4 @@
-import { IResLocationResponse } from "../location.type";
+import { IResLocationResponse } from "../location.service.type";
 
 export const locations: Record<string, IResLocationResponse> = {
 	antwerp: {

@@ -1,6 +1,6 @@
 //@ts-ignore
 import camelize from "camelize";
-import { IResLocationResponse } from "./location.type";
+import { IResLocationResponse } from "./location.service.type";
 import { locations } from "./mock";
 
 export const locationResquest = async (
