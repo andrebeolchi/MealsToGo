@@ -2,25 +2,37 @@ import React, { useContext } from "react";
 
 import { SafeArea } from "../../../../components/safe-area";
 import { Spacer } from "../../../../components/spacer";
-import { IRestaurant } from "../../../../interfaces/restaurant";
 import { RestaurantInfoCard } from "../../components/restaurant-info-card";
-import { RestaurantList, Search, SearchContainer } from "./styles";
+
+import { colors } from "../../../../infrastructure/theme/colors";
+
+import { IRestaurant } from "../../../../interfaces/restaurant";
 
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
+import {
+	Loading,
+	LoadingContainer,
+	RestaurantList,
+	Search,
+	SearchContainer,
+} from "./styles";
 
 export const RestaurantsScreen = () => {
-	const { restaurants } = useContext(RestaurantsContext);
+	const { isLoading, restaurants } = useContext(RestaurantsContext);
 
 	return (
 		<SafeArea>
+			{isLoading && (
+				<LoadingContainer>
+					<Loading size={50} animating color={colors.brand.primary} />
+				</LoadingContainer>
+			)}
 			<SearchContainer>
 				<Search />
 			</SearchContainer>
 			<RestaurantList
 				data={restaurants}
 				renderItem={({ item }: { item: IRestaurant }) => {
-					console.log(item);
-
 					return (
 						<Spacer position="bottom" size="medium">
 							<RestaurantInfoCard restaurant={item} />

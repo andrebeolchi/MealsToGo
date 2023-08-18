@@ -1,5 +1,5 @@
 import { FlatList, View } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { ActivityIndicator, Searchbar } from "react-native-paper";
 import styled, { DefaultTheme } from "styled-components/native";
 
 export const SearchContainer = styled(View)`
@@ -16,4 +16,14 @@ export const RestaurantList = styled(FlatList).attrs({
 export const Search = styled(Searchbar)`
 	background-color: ${(props: DefaultTheme) =>
 		props.theme.colors.bg.secondary};
+`;
+
+export const Loading = styled(ActivityIndicator)`
+	margin-left: -25px;
+`;
+
+export const LoadingContainer = styled(View)`
+	position: absolute;
+	top: 50%;
+	left: 50%;
 `;
