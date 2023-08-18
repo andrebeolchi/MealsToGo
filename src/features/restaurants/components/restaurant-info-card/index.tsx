@@ -34,6 +34,7 @@ export const RestaurantInfoCard = ({
 		isOpenNow: true,
 		rating: 4,
 		isClosedTemporarily: true,
+		placeId: "some-place-id",
 	},
 }: RestaurantInfoCardProps) => {
 	const {
@@ -44,6 +45,7 @@ export const RestaurantInfoCard = ({
 		isOpenNow,
 		rating,
 		isClosedTemporarily,
+		placeId,
 	} = restaurant;
 
 	const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -57,7 +59,11 @@ export const RestaurantInfoCard = ({
 				<Section>
 					<Rating>
 						{ratingArray.map((_, index) => (
-							<Star key={index} width={20} height={20} />
+							<Star
+								key={`star-${placeId}-${index}`}
+								width={20}
+								height={20}
+							/>
 						))}
 					</Rating>
 
