@@ -3,7 +3,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { RestaurantsScreen } from "../../../features/restaurants/screens/restaurant-screen";
+import { RestaurantsScreen } from "../../../features/restaurants/screens/restaurants-screen";
 import { theme } from "../../theme";
 import RestaurantsNavigator from "../restaurants";
 import { TAppNavigatorParamList, TTabIcons } from "./index.types";
