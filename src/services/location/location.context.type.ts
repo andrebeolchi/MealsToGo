@@ -5,6 +5,7 @@ export interface ILocationContext {
 	error: any;
 	location: ILocation | null;
 	search: (searchKeyword: string) => void;
+	keyword: string;
 }
 
 export interface ILocationContextProps {

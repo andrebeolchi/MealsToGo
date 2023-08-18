@@ -9,13 +9,8 @@ import { colors } from "../../../../infrastructure/theme/colors";
 import { IRestaurant } from "../../../../interfaces/restaurant";
 
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
-import {
-	Loading,
-	LoadingContainer,
-	RestaurantList,
-	Search,
-	SearchContainer,
-} from "./styles";
+import { Loading, LoadingContainer, RestaurantList } from "./styles";
+import { Search } from "../../components/search";
 
 export const RestaurantsScreen = () => {
 	const { isLoading, restaurants } = useContext(RestaurantsContext);
@@ -27,9 +22,7 @@ export const RestaurantsScreen = () => {
 					<Loading size={50} animating color={colors.brand.primary} />
 				</LoadingContainer>
 			)}
-			<SearchContainer>
-				<Search />
-			</SearchContainer>
+			<Search />
 			<RestaurantList
 				data={restaurants}
 				renderItem={({ item }: { item: IRestaurant }) => {

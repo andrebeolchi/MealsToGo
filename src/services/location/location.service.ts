@@ -18,7 +18,7 @@ export const locationResquest = async (
 };
 
 export const locationTransform = (result: IResLocationResponse) => {
-	const formattedResponse = camelize(result);
+	const formattedResponse = camelize(result.results);
 	const { geometry } = formattedResponse[0];
 	const { lat, lng } = geometry.location;
 
