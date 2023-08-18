@@ -16,12 +16,16 @@ export const restaurantsTransform = ({
 			];
 		});
 
+		console.log(restaurant);
+
 		return {
 			...restaurant,
 			isClosedTemporarily:
 				restaurant.business_status === "CLOSED_TEMPORARILY",
 			isOpenNow:
 				restaurant.opening_hours && restaurant.opening_hours.open_now,
+			address: restaurant.vicinity,
+			rating: restaurant.rating || 0,
 		};
 	});
 
