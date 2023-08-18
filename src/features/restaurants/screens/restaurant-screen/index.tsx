@@ -9,7 +9,7 @@ import { colors } from "../../../../infrastructure/theme/colors";
 import { IRestaurant } from "../../../../interfaces/restaurant";
 
 import { NavigationProp } from "@react-navigation/native";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { TRestaurantsNavigatorParamList } from "../../../../infrastructure/navigation/restaurants/index.types";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
 import { Search } from "../../components/search";
@@ -34,7 +34,7 @@ export const RestaurantsScreen = ({
 				data={restaurants}
 				renderItem={({ item }: { item: IRestaurant }) => {
 					return (
-						<Pressable
+						<TouchableOpacity
 							onPress={() =>
 								navigation.navigate("RestaurantDetail", {
 									restaurant: item,
@@ -44,7 +44,7 @@ export const RestaurantsScreen = ({
 							<Spacer position="bottom" size="medium">
 								<RestaurantInfoCard restaurant={item} />
 							</Spacer>
-						</Pressable>
+						</TouchableOpacity>
 					);
 				}}
 				keyExtractor={(item: IRestaurant) => item.name}
