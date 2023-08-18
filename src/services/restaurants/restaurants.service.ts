@@ -16,8 +16,6 @@ export const restaurantsTransform = ({
 			];
 		});
 
-		console.log(restaurant);
-
 		return {
 			...restaurant,
 			isClosedTemporarily:

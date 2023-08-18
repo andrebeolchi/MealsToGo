@@ -34,7 +34,6 @@ export const RestaurantsContextProvider = ({
 			restaurantsRequest(loc)
 				.then(restaurantsTransform)
 				.then((results) => {
-					console.log(results);
 					setRestaurants(results);
 				})
 				.catch((err) => {
