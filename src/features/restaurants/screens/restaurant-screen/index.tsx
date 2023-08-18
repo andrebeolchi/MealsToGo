@@ -9,8 +9,8 @@ import { colors } from "../../../../infrastructure/theme/colors";
 import { IRestaurant } from "../../../../interfaces/restaurant";
 
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
-import { Loading, LoadingContainer, RestaurantList } from "./styles";
 import { Search } from "../../components/search";
+import { Loading, LoadingContainer, RestaurantList } from "./styles";
 
 export const RestaurantsScreen = () => {
 	const { isLoading, restaurants } = useContext(RestaurantsContext);

@@ -46,7 +46,7 @@ export const RestaurantInfoCard = ({
 		isClosedTemporarily,
 	} = restaurant;
 
-	const ratingArray = Array.from(new Array(Math.floor(rating)));
+	const ratingArray = Array.from(new Array(Math.floor(rating || 0)));
 
 	return (
 		<RestaurantCard elevation={4}>

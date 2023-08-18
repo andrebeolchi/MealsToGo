@@ -9,7 +9,10 @@ import { ILocation } from "./location.service.type";
 export const LocationContext = createContext<ILocationContext>({
 	isLoading: false,
 	error: null,
-	location: null,
+	location: {
+		lat: 0,
+		lng: 0,
+	},
 	search: () => {},
 	keyword: "",
 });
@@ -18,7 +21,10 @@ export const LocationContextProvider = ({
 	children,
 }: ILocationContextProps) => {
 	const [keyword, setKeyword] = useState<string>("San Francisco");
-	const [location, setLocation] = useState<ILocation | null>(null);
+	const [location, setLocation] = useState<ILocation>({
+		lat: 0,
+		lng: 0,
+	});
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState(null);
 
