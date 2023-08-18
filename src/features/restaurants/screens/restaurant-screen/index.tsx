@@ -8,11 +8,18 @@ import { colors } from "../../../../infrastructure/theme/colors";
 
 import { IRestaurant } from "../../../../interfaces/restaurant";
 
+import { NavigationProp } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import { TRestaurantsNavigatorParamList } from "../../../../infrastructure/navigation/restaurants/index.types";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
 import { Search } from "../../components/search";
 import { Loading, LoadingContainer, RestaurantList } from "./styles";
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({
+	navigation,
+}: {
+	navigation: NavigationProp<TRestaurantsNavigatorParamList>;
+}) => {
 	const { isLoading, restaurants } = useContext(RestaurantsContext);
 
 	return (
@@ -27,9 +34,17 @@ export const RestaurantsScreen = () => {
 				data={restaurants}
 				renderItem={({ item }: { item: IRestaurant }) => {
 					return (
-						<Spacer position="bottom" size="medium">
-							<RestaurantInfoCard restaurant={item} />
-						</Spacer>
+						<Pressable
+							onPress={() =>
+								navigation.navigate("RestaurantDetail", {
+									restaurant: item,
+								})
+							}
+						>
+							<Spacer position="bottom" size="medium">
+								<RestaurantInfoCard restaurant={item} />
+							</Spacer>
+						</Pressable>
 					);
 				}}
 				keyExtractor={(item: IRestaurant) => item.name}
