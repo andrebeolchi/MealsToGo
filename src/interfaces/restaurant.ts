@@ -23,13 +23,6 @@ export interface Geometry {
 	viewport: Viewport;
 }
 
-export interface Photo {
-	height: number;
-	html_attributions: string[];
-	photo_reference: string;
-	width: number;
-}
-
 export interface OpeningHours {
 	open_now: boolean;
 }
@@ -40,7 +33,7 @@ export interface IRawRestaurant {
 	icon: string;
 	name: string;
 	opening_hours: OpeningHours;
-	photos: Photo[];
+	photos: String[];
 	place_id: string;
 	rating: number;
 	reference: string;

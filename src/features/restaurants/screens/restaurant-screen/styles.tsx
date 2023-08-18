@@ -11,7 +11,7 @@ export const RestaurantList = styled(FlatList).attrs({
 	contentContainerStyle: {
 		padding: 16,
 	},
-})``;
+})`` as typeof FlatList;
 
 export const Search = styled(Searchbar)`
 	background-color: ${(props: DefaultTheme) =>

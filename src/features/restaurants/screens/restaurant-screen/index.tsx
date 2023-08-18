@@ -9,7 +9,7 @@ import { RestaurantList, Search, SearchContainer } from "./styles";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
 
 export const RestaurantsScreen = () => {
-	const restaurantContext = useContext(RestaurantsContext);
+	const { restaurants } = useContext(RestaurantsContext);
 
 	return (
 		<SafeArea>
@@ -17,12 +17,16 @@ export const RestaurantsScreen = () => {
 				<Search />
 			</SearchContainer>
 			<RestaurantList
-				data={restaurantContext.restaurants}
-				renderItem={({ item }: { item: IRestaurant }) => (
-					<Spacer position="bottom" size="medium">
-						<RestaurantInfoCard />
-					</Spacer>
-				)}
+				data={restaurants}
+				renderItem={({ item }: { item: IRestaurant }) => {
+					console.log(item);
+
+					return (
+						<Spacer position="bottom" size="medium">
+							<RestaurantInfoCard restaurant={item} />
+						</Spacer>
+					);
+				}}
 				keyExtractor={(item: IRestaurant) => item.name}
 			/>
 		</SafeArea>
