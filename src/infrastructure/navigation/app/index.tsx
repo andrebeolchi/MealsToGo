@@ -47,6 +47,7 @@ const createScreenOptions = ({
 			/>
 		),
 		tabBarActiveTintColor: theme.colors.brand.primary,
+		headerShown: false,
 	};
 };
 

@@ -16,5 +16,7 @@ export type TPositionVariant = {
 	left: string;
 	right: string;
 	bottom: string;
+	horizontal: string;
+	vertical: string;
 };
 export type TPosition = keyof TPositionVariant;

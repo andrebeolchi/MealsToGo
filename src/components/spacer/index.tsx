@@ -13,6 +13,8 @@ const positionVariant = {
 	left: "marginLeft",
 	right: "marginRight",
 	bottom: "marginBottom",
+	horizontal: "marginHorizontal",
+	vertical: "marginVertical",
 };
 
 const getVariant = (position: TPosition, size: TSize, theme: DefaultTheme) => {

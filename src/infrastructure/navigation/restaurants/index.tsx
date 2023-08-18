@@ -2,7 +2,7 @@ import React from "react";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { Text } from "../../../components/text";
+import { RestaurantDetailsScreen } from "../../../features/restaurants/screens/restaurant-details";
 import { RestaurantsScreen } from "../../../features/restaurants/screens/restaurants-screen";
 import { TRestaurantsNavigatorParamList } from "./index.types";
 
@@ -25,7 +25,7 @@ export default function RestaurantsNavigator() {
 
 			<RestaurantStack.Screen
 				name="RestaurantDetail"
-				component={() => <Text>Restaurant Detail</Text>}
+				component={RestaurantDetailsScreen}
 			/>
 		</RestaurantStack.Navigator>
 	);

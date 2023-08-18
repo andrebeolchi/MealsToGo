@@ -1,8 +1,9 @@
 import { RouteProp } from "@react-navigation/native";
+import { IRestaurant } from "../../../interfaces/restaurant";
 
 export type TRestaurantsNavigatorParamList = {
 	Restaurants: undefined;
-	RestaurantDetail: { restaurant: any };
+	RestaurantDetail: { restaurant: IRestaurant };
 };
 
 export type RestaurantsScreenRouteProp = RouteProp<
