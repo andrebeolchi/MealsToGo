@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import { CompositeNavigationProp, RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { IRestaurant } from "../../../interfaces/restaurant";
 import { TRestaurantsNavigatorParamList } from "../restaurants/index.types";
 
 export type TTabIcons = {
@@ -9,7 +10,8 @@ export type TTabIcons = {
 };
 
 export type TAppNavigatorParamList = {
-	RestaurantsNavigator: TRestaurantsNavigatorParamList;
+	RestaurantsNavigator: undefined;
+	RestaurantDetail: { restaurant: IRestaurant };
 	Map: undefined;
 	Settings: undefined;
 };

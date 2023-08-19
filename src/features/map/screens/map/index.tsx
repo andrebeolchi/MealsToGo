@@ -4,9 +4,9 @@ import { Callout, Marker } from "react-native-maps";
 import { TAppNavigatorParamList } from "../../../../infrastructure/navigation/app/index.types";
 import { LocationContext } from "../../../../services/location/location.context";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
+import MapCallout from "../../components/map-callout";
 import { Search } from "../../components/search";
 import { Map } from "./index.styles";
-import MapCallout from "../../components/map-callout";
 
 export const MapScreen = ({
 	navigation,
@@ -48,7 +48,13 @@ export const MapScreen = ({
 								longitude: restaurant.geometry.location.lng,
 							}}
 						>
-							<Callout>
+							<Callout
+								onPress={() =>
+									navigation.navigate("RestaurantDetail", {
+										restaurant,
+									})
+								}
+							>
 								<MapCallout restaurant={restaurant} />
 							</Callout>
 						</Marker>
