@@ -12,28 +12,36 @@ export const FavouritesBar = ({
 }: {
 	favourites: IRestaurant[];
 	onNavigate: (restaurant: IRestaurant) => void;
-}) => (
-	<FavouritesWrapper>
-		<Spacer position="top" size="medium">
-			<Spacer position="left" size="medium">
-				<Text variant="caption">Favourites</Text>
+}) => {
+	if (!favourites.length) {
+		return null;
+	}
+
+	return (
+		<FavouritesWrapper>
+			<Spacer position="top" size="medium">
+				<Spacer position="left" size="medium">
+					<Text variant="caption">Favourites</Text>
+				</Spacer>
 			</Spacer>
-		</Spacer>
 
-		<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-			{favourites.map((restaurant: IRestaurant) => {
-				const key = restaurant.name;
+			<ScrollView horizontal showsHorizontalScrollIndicator={false}>
+				{favourites.map((restaurant: IRestaurant) => {
+					const key = restaurant.name;
 
-				return (
-					<Spacer key={key} position="left" size="medium">
-						<TouchableOpacity
-							onPress={() => onNavigate(restaurant)}
-						>
-							<CompactRestaurantInfo restaurant={restaurant} />
-						</TouchableOpacity>
-					</Spacer>
-				);
-			})}
-		</ScrollView>
-	</FavouritesWrapper>
-);
+					return (
+						<Spacer key={key} position="left" size="medium">
+							<TouchableOpacity
+								onPress={() => onNavigate(restaurant)}
+							>
+								<CompactRestaurantInfo
+									restaurant={restaurant}
+								/>
+							</TouchableOpacity>
+						</Spacer>
+					);
+				})}
+			</ScrollView>
+		</FavouritesWrapper>
+	);
+};
