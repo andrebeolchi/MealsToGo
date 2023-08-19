@@ -9,10 +9,12 @@ const isAndroid = Platform.OS === "android";
 
 export const CompactRestaurantInfo = ({
 	restaurant,
+	isMap,
 }: {
 	restaurant: IRestaurant;
+	isMap?: boolean;
 }) => {
-	const Image = isAndroid ? CompactWebView : CompactImage;
+	const Image = isAndroid && isMap ? CompactWebView : CompactImage;
 
 	return (
 		<Item>

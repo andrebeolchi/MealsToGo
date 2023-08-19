@@ -7,5 +7,5 @@ export default function MapCallout({
 }: {
 	restaurant: IRestaurant;
 }) {
-	return <CompactRestaurantInfo restaurant={restaurant} />;
+	return <CompactRestaurantInfo restaurant={restaurant} isMap />;
 }
