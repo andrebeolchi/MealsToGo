@@ -1,12 +1,16 @@
-import React from "react";
-
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { RestaurantsScreen } from "../../../features/restaurants/screens/restaurants";
-import { theme } from "../../theme";
-import RestaurantsNavigator from "../restaurants";
+import React from "react";
+
 import { TAppNavigatorParamList, TTabIcons } from "./index.types";
+
+import RestaurantsNavigator from "../restaurants";
+
+import { theme } from "../../theme";
+
+import { MapScreen } from "../../../features/map/screens/map";
+import { RestaurantsScreen } from "../../../features/restaurants/screens/restaurants";
 
 const Tab = createBottomTabNavigator<TAppNavigatorParamList>();
 
@@ -60,7 +64,7 @@ export default function AppNavigator() {
 					component={RestaurantsNavigator}
 					options={{ title: "Restaurants" }}
 				/>
-				<Tab.Screen name="Map" component={RestaurantsScreen} />
+				<Tab.Screen name="Map" component={MapScreen} />
 				<Tab.Screen name="Settings" component={RestaurantsScreen} />
 			</Tab.Navigator>
 		</NavigationContainer>
