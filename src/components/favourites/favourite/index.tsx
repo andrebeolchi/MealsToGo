@@ -1,7 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 import React, { useContext } from "react";
-import { IRestaurant } from "../../interfaces/restaurant";
-import { FavouritesContext } from "../../services/favourites/favourites.context";
+import { IRestaurant } from "../../../interfaces/restaurant";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 import { FavouriteButton } from "./index.styles";
 
 export const Favourite = ({ restaurant }: { restaurant: IRestaurant }) => {

@@ -3,6 +3,7 @@ import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import open from "../../../../../assets/open";
 import star from "../../../../../assets/start";
+import { Favourite } from "../../../../components/favourites/favourite";
 import { Spacer } from "../../../../components/spacer";
 import { Text } from "../../../../components/text";
 import {
@@ -15,7 +16,6 @@ import {
 	SectionEnd,
 } from "./styles";
 import { IconProps, RestaurantInfoCardProps } from "./types";
-import { Favourite } from "../../../../components/favourites";
 
 const Star = ({ width, height }: IconProps) => (
 	<SvgXml xml={star} width={width} height={height} />

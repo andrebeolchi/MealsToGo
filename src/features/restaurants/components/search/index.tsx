@@ -4,7 +4,13 @@ import { SearchBar, SearchContainer } from "./styles";
 
 import { LocationContext } from "../../../../services/location/location.context";
 
-export const Search = () => {
+export const Search = ({
+	isFavouritesToggled,
+	onFavouritesToggle,
+}: {
+	isFavouritesToggled: boolean;
+	onFavouritesToggle: () => void;
+}) => {
 	const { keyword, search } = useContext(LocationContext);
 	const [searchKeyword, setSearchKeyword] = useState<string>(keyword);
 
@@ -16,6 +22,8 @@ export const Search = () => {
 		<SearchContainer>
 			<SearchBar
 				placeholder="Search for a location"
+				icon={isFavouritesToggled ? "heart" : "heart-outline"}
+				onIconPress={onFavouritesToggle}
 				value={searchKeyword}
 				onSubmitEditing={() => {
 					search(searchKeyword);
