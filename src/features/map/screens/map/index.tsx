@@ -1,11 +1,18 @@
+import { NavigationProp } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { Marker } from "react-native-maps";
+import { Callout, Marker } from "react-native-maps";
+import { TAppNavigatorParamList } from "../../../../infrastructure/navigation/app/index.types";
 import { LocationContext } from "../../../../services/location/location.context";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurants.context";
 import { Search } from "../../components/search";
 import { Map } from "./index.styles";
+import MapCallout from "../../components/map-callout";
 
-export const MapScreen = () => {
+export const MapScreen = ({
+	navigation,
+}: {
+	navigation: NavigationProp<TAppNavigatorParamList>;
+}) => {
 	const { location } = useContext(LocationContext);
 	const { restaurants = [] } = useContext(RestaurantsContext);
 
@@ -40,7 +47,11 @@ export const MapScreen = () => {
 								latitude: restaurant.geometry.location.lat,
 								longitude: restaurant.geometry.location.lng,
 							}}
-						/>
+						>
+							<Callout>
+								<MapCallout restaurant={restaurant} />
+							</Callout>
+						</Marker>
 					);
 				})}
 			</Map>
