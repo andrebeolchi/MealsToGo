@@ -1,6 +1,7 @@
 export interface ILocation {
 	lat: number;
 	lng: number;
+	viewport: IViewport;
 }
 
 export interface IViewport {
