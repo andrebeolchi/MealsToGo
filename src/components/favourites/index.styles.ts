@@ -5,7 +5,7 @@ export const FavouriteButton = styled(TouchableOpacity)`
 	background-color: transparent;
 	border-color: #20232a;
 	position: absolute;
-	top: 12px;
-	right: 12px;
+	top: 16px;
+	right: 16px;
 	z-index: 9;
 ` as typeof TouchableOpacity;
