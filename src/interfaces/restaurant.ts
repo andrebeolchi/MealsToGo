@@ -9,7 +9,7 @@ export interface IRestaurant {
 	rating: number;
 	isClosedTemporarily: boolean;
 	placeId: string;
-	geometry: IGeometry;
+	geometry?: IGeometry;
 }
 
 export interface Location {

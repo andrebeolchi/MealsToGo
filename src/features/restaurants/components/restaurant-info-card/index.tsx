@@ -15,6 +15,7 @@ import {
 	SectionEnd,
 } from "./styles";
 import { IconProps, RestaurantInfoCardProps } from "./types";
+import { Favourite } from "../../../../components/favourites";
 
 const Star = ({ width, height }: IconProps) => (
 	<SvgXml xml={star} width={width} height={height} />
@@ -52,6 +53,7 @@ export const RestaurantInfoCard = ({
 
 	return (
 		<RestaurantCard elevation={4}>
+			<Favourite />
 			<Card.Cover key={name} source={{ uri: photos[0] }} />
 			<Info>
 				<Text variant="label">{name}</Text>
