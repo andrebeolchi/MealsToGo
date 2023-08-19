@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { SearchBar, SearchContainer } from "./styles";
+import { SearchBar, SearchContainer } from "./index.styles";
 
 import { LocationContext } from "../../../../services/location/location.context";
 
@@ -17,6 +17,7 @@ export const Search = () => {
 			<SearchBar
 				placeholder="Search for a location"
 				value={searchKeyword}
+				icon="map"
 				onSubmitEditing={() => {
 					search(searchKeyword);
 				}}

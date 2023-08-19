@@ -1,11 +1,12 @@
 import React from "react";
-import MapView from "react-native-maps";
-import { SafeArea } from "../../../../components/safe-area";
+import { Search } from "../../components/search";
+import { Map } from "./index.styles";
 
 export const MapScreen = () => {
 	return (
-		<SafeArea>
-			<MapView style={{ height: "100%", width: "100%" }} />
-		</SafeArea>
+		<>
+			<Search />
+			<Map />
+		</>
 	);
 };
