@@ -1,3 +1,5 @@
+import { IGeometry } from "../services/location/location.service.type";
+
 export interface IRestaurant {
 	name: string;
 	icon: string;
@@ -7,6 +9,7 @@ export interface IRestaurant {
 	rating: number;
 	isClosedTemporarily: boolean;
 	placeId: string;
+	geometry: IGeometry;
 }
 
 export interface Location {
